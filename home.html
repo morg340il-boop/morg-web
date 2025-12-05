@@ -1,0 +1,26 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="style.css">
+<title>Home</title>
+</head>
+<body>
+<div class="container">
+<h2>Welcome!</h2>
+<p>You are logged in.</p>
+<button onclick="logout()">Logout</button>
+</div>
+
+<script>
+if(!localStorage.getItem('loggedIn')) {
+  window.location = "login.html";
+}
+
+function logout() {
+  localStorage.removeItem('loggedIn');
+  window.location = "login.html";
+}
+</script>
+</body>
+</html>

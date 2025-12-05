@@ -1,0 +1,34 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="style.css">
+<title>Login</title>
+</head>
+<body>
+<div class="container">
+<h2>Login</h2>
+<input id="lg-user" placeholder="Username">
+<input id="lg-pass" type="password" placeholder="Password">
+<button onclick="login()">Login</button>
+<a href="sign-up.html">Create Account</a>
+<a href="reset-password.html">Forgot Password?</a>
+</div>
+
+<script>
+function login() {
+  let u = document.getElementById('lg-user').value;
+  let p = document.getElementById('lg-pass').value;
+
+  let accounts = JSON.parse(localStorage.getItem('accounts') || "{}");
+
+  if(accounts[u] && accounts[u] === p) {
+    localStorage.setItem('loggedIn', u);
+    window.location = "home.html";
+  } else {
+    alert('Invalid login');
+  }
+}
+</script>
+</body>
+</html>
